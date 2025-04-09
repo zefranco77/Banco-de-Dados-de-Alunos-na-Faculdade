@@ -1,0 +1,12 @@
+src/
+└── main/
+    ├── java/
+    │   └── com/
+    │       └── bancodealunos/
+    │           ├── BancoDeDadosDeAlunosApplication.java
+    │           ├── entity/
+    │           ├── repository/
+    │           ├── service/
+    │           └── generator/
+    └── resources/
+        ├── application.properties
