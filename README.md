@@ -94,5 +94,8 @@ Projetos acadêmicos de sistemas escolares
 
 Portfólio de desenvolvedores backend
 
+![ChatGPT Image 9 de abr  de 2025, 08_52_03](https://github.com/user-attachments/assets/d867250d-83f9-4611-8f80-271426d9326f)
+
+
 👨‍💻 Autor
 Feito com 💻 e ☕ por José Francisco
