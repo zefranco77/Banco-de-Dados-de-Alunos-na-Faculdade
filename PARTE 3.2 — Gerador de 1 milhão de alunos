@@ -1,0 +1,55 @@
+package com.bancodealunos.generator;
+
+import com.bancodealunos.entity.Aluno;
+import com.bancodealunos.repository.AlunoRepository;
+import com.github.javafaker.Faker;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class GeradorDeAlunos implements CommandLineRunner {
+
+    @Autowired
+    private AlunoRepository alunoRepository;
+
+    @Override
+    public void run(String... args) throws Exception {
+        Faker faker = new Faker();
+        List<Aluno> alunos = new ArrayList<>();
+        int total = 1_000_000;
+        int batchSize = 10_000;
+
+        System.out.println("🚀 Iniciando geração de " + total + " alunos...");
+
+        for (int i = 1; i <= total; i++) {
+            Aluno aluno = new Aluno();
+            aluno.setNome(faker.name().fullName());
+            aluno.setEmail(faker.internet().emailAddress());
+            aluno.setMatricula("MAT" + String.format("%07d", i));
+            aluno.setDataNascimento(
+                faker.date().birthday().toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate()
+            );
+            alunos.add(aluno);
+
+            if (alunos.size() == batchSize) {
+                alunoRepository.saveAll(alunos);
+                alunos.clear();
+                System.out.println("✅ Inseridos: " + i + " alunos");
+            }
+        }
+
+        // Inserir o restante
+        if (!alunos.isEmpty()) {
+            alunoRepository.saveAll(alunos);
+        }
+
+        System.out.println("🎉 Geração concluída com sucesso!");
+    }
+}
