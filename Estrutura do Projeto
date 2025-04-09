@@ -1,0 +1,14 @@
+universidade-db/
+├── src/
+│   ├── main/
+│   │   ├── java/com/seuprojeto/universidade/
+│   │   │   ├── controller/
+│   │   │   ├── entity/
+│   │   │   ├── repository/
+│   │   │   ├── service/
+│   │   │   └── UniversidadeApplication.java
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── data.sql (opcional)
+├── pom.xml
+└── README.md
