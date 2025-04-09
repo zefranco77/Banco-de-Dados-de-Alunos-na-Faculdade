@@ -1,0 +1,23 @@
+package com.bancodealunos.service;
+
+import com.bancodealunos.entity.Curso;
+import com.bancodealunos.repository.CursoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CursoService {
+
+    @Autowired
+    private CursoRepository cursoRepository;
+
+    public List<Curso> listarTodos() {
+        return cursoRepository.findAll();
+    }
+
+    public Curso salvar(Curso curso) {
+        return cursoRepository.save(curso);
+    }
+}
