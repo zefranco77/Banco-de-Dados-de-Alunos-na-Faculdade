@@ -1,0 +1,12 @@
+package com.bancodealunos;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BancoDeDadosDeAlunosApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(BancoDeDadosDeAlunosApplication.class, args);
+    }
+}
