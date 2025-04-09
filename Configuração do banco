@@ -11,3 +11,12 @@ spring.jpa.properties.hibernate.jdbc.batch_size=1000
 # Encoding
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.sql.init.platform=mysql
+
+
+//Substitua seu_usuario e sua_senha com as credenciais reais do seu MySQL.
+Certifique-se de que o banco banco_alunos existe no MySQL:
+
+sql
+Copiar
+Editar
+CREATE DATABASE banco_alunos;
