@@ -1,0 +1,33 @@
+@Component
+public class GeradorDeDados implements CommandLineRunner {
+
+    @Autowired
+    private AlunoRepository alunoRepository;
+
+    @Override
+    public void run(String... args) throws Exception {
+        Faker faker = new Faker();
+        List<Aluno> lista = new ArrayList<>();
+        
+        for (int i = 0; i < 1_000_000; i++) {
+            Aluno aluno = new Aluno();
+            aluno.setNome(faker.name().fullName());
+            aluno.setEmail(faker.internet().emailAddress());
+            aluno.setMatricula("MAT" + String.format("%07d", i));
+            aluno.setDataNascimento(faker.date().birthday().toInstant()
+                .atZone(ZoneId.systemDefault()).toLocalDate());
+            lista.add(aluno);
+
+            if (lista.size() == 10000) {
+                alunoRepository.saveAll(lista);
+                lista.clear();
+            }
+        }
+
+        if (!lista.isEmpty()) {
+            alunoRepository.saveAll(lista);
+        }
+
+        System.out.println("Dados gerados com sucesso!");
+    }
+}
