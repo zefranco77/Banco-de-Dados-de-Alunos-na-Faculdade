@@ -1,0 +1,24 @@
+bash
+Copiar
+Editar
+GET http://localhost:8080/api/cursos/1/alunos
+Você verá algo assim:
+
+json
+Copiar
+Editar
+[
+  {
+    "id": 1,
+    "nome": "João da Silva",
+    "email": "joao@email.com",
+    "matricula": "MAT0000001",
+    "dataNascimento": "1998-04-12",
+    "curso": {
+      "id": 1,
+      "nome": "Ciência da Computação",
+      "codigo": "CC"
+    }
+  },
+  ...
+]
